@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ServiceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/', [FrontController::class, 'index']);
+
+
+Route::get('/slidercreate', [SliderController::class, 'create'])->middleware('auth');
+Route::post('/sliderstore', [SliderController::class, 'store'])->name('slider.store');
+
+
+Route::get('/servicecreate', [ServiceController::class, 'create']);
+Route::post('/servicestore', [ServiceController::class, 'store'])->name('service.store');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
