@@ -27,10 +27,18 @@ Route::get('/', [FrontController::class, 'index']);
 
 Route::get('/slidercreate', [SliderController::class, 'create'])->middleware('auth');
 Route::post('/sliderstore', [SliderController::class, 'store'])->name('slider.store');
+Route::get('/editslider/{id}', [SliderController::class, 'edit']);
+Route::post('/updateslider/{id}', [SliderController::class, 'update'])->name('slider.update');
+
+
 
 
 Route::get('/servicecreate', [ServiceController::class, 'create']);
 Route::post('/servicestore', [ServiceController::class, 'store'])->name('service.store');
+
+
+
+
 
 Auth::routes();
 

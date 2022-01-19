@@ -34,7 +34,7 @@
     <!--============= Header part End --=============-->
 
     <!--============= Banner part start --=============-->
-    <div class="full-wrapper banner">
+    <div class="full-wrapper banner" style="background: url({{asset('img/'. $slider->image)}}); background-size:cover;">
         <div class="wrapper">
             <div class="banner-text">
                 <h1>{{$slider->heading}}</h1>
@@ -49,8 +49,8 @@
     <div class="full-wrapper">
         <div class="wrapper">
             <div class="about">
-                <h2>{{$service->service_title}}</h2>
-                <p>{{$service->service_heading}} </p>
+                <h2>{{$service->service_heading}}</h2>
+                <h3>{{$service->service_title}}</h3>
             </div>
         </div>
     </div>
